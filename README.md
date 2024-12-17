@@ -25,7 +25,6 @@
 Вычисление константного выражения на этапе трансляции (инфиксная
 форма), пример:
 ?(имя + 1)
-6
 Результатом вычисления константного выражения является значение.
 Для константных вычислений определены операции и функции:
 1. Сложение.
@@ -33,21 +32,35 @@
 3. Умножение.
 4. Деление.
 5. pow().
+
+
 Все конструкции учебного конфигурационного языка (с учетом их
 возможной вложенности) должны быть покрыты тестами. Необходимо показать 3
 примера описания конфигураций из разных предметных областей.
+
+
 # Установка
 ```git clone https://github.com/ababva/lubix_3```
 # Запуск 
+
 ## Запуск программы
+
+
 ```python main.py```
+
+
 Запускается изначальный файл, который создан на основе выданного задания.
 ![image](https://github.com/user-attachments/assets/74f788cf-6633-429f-b791-1bb83952bf8a)
 
 ## Запуск программы
 ```python tests.py```
+
+
 # Тесты
+
 ## Парсинг одиночной константы
+
+
 ```
 def test_parse_constant(self):
         """Test parsing a single constant."""
@@ -58,7 +71,11 @@ def test_parse_constant(self):
         self.assertEqual(result.value.value, 5)
         self.assertEqual(result.type, Token.CONST)
 ```
+
+
 ## Парсинг словаря
+
+
 ```
     def test_parse_dictionary(self):
         """Test parsing a dictionary."""
@@ -75,7 +92,11 @@ def test_parse_constant(self):
         self.assertEqual(result.value.l[1].name, "b")
         self.assertEqual(result.value.l[1].value.value, 2)
 ```
+
+
 ## Пробное выражение
+
+
 ```
     def test_substitute(self):
         """Test variable substitution in expressions."""
@@ -88,7 +109,11 @@ def test_parse_constant(self):
         substituted_line = substitute(line, stack)
         self.assertEqual(substituted_line, "10 + 5")
 ```
+
+
 ## Генерации вывода .xml файла
+
+
 ```
     def test_process_output(self):
         """Test XML output generation."""
@@ -111,7 +136,11 @@ def test_parse_constant(self):
         )
         self.assertEqual(xml_output.strip(), expected_output.strip())
 ```
+
+
 ## Загрузка файла
+
+
 ```
 @patch("builtins.open", new_callable=mock_open, read_data="a: 5\nb: 10\n")
     def test_load_file(self, mock_file):
@@ -120,7 +149,11 @@ def test_parse_constant(self):
         self.assertEqual(lines, ["a: 5\n", "b: 10\n"])
         mock_file.assert_called_with("test.txt", "r")
 ```
+
+
 ## Сохранение файла
+
+
 ```
 @patch("builtins.open", new_callable=mock_open)
     def test_save_file(self, mock_file):
@@ -130,6 +163,10 @@ def test_parse_constant(self):
         mock_file.assert_called_with("output.xml", "w")
         mock_file().write.assert_called_with(data)
 ```
+
+
 # Результат тестов
+
+
 ![image](https://github.com/user-attachments/assets/1c754243-9753-472a-96ac-0209a7ce1b6e)
 
