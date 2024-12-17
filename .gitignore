@@ -1,0 +1,7 @@
+# created by virtualenv automatically
+.venv
+.idea
+__pycache__
+.pytest_cache
+.vscode
+.DS_Storegit branch -M main
