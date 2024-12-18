@@ -50,7 +50,8 @@
 
 
 Запускается изначальный файл, который создан на основе выданного задания.
-![image](https://github.com/user-attachments/assets/74f788cf-6633-429f-b791-1bb83952bf8a)
+![Uploading image.png…]()
+
 
 ## Запуск программы
 ```python tests.py```
